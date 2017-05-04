@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MemoryAllocation</string>
+    <string name="holeSize">Hole Size in MB</string>
+    <string name="holeAddress">Hole Starting Address</string>
+</resources>

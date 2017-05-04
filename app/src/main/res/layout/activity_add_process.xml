@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.android.memoryallocation.AddProcess">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add as many Processes as you want"
+        android:textColor="@color/colorAccent"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:layout_margin="10dp"/>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="process Size"
+        android:id="@+id/size"
+        android:layout_gravity="center"
+        android:layout_margin="5dp"
+        android:inputType="numberDecimal"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/add"
+        android:text="ADD Process"
+        android:layout_gravity="center"
+        android:layout_margin="5dp"
+        android:onClick="add"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:id="@+id/done"
+        android:onClick="done"
+        android:text="Done"
+        android:layout_margin="5dp"/>
+
+</LinearLayout>

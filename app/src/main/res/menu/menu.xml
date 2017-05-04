@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<item android:title="FirstFit"
+    android:id="@+id/action_firs_fir"
+    app:showAsAction="ifRoom">
+
+</item>
+    <item android:title="Best Fit"
+        android:id="@+id/action_best_fit"
+        app:showAsAction="ifRoom"
+        ></item>
+</menu>
