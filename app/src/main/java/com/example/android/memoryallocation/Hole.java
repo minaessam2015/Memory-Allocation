@@ -5,7 +5,7 @@ package com.example.android.memoryallocation;
  */
 
 public class Hole {
-    private int address,size,currentID;
+    private int address,size,currentID,limit;
     private static int id=0;
     private boolean filled=false;
     private Process process;
@@ -28,6 +28,7 @@ public class Hole {
         this.size=size;
         id++;
         currentID=id;
+        limit=address+(1024*size);
     }
 
     public int getAddress() {
@@ -60,5 +61,9 @@ public class Hole {
 
     public void setFilled(boolean filled) {
         this.filled = filled;
+    }
+
+    public int getLimit() {
+        return limit;
     }
 }
