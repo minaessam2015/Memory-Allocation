@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     Button done;
     HomeAdapter adapter;
+    TextView invalid;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +33,9 @@ public class MainActivity extends AppCompatActivity {
         add=(Button)findViewById(R.id.add_hole);
         recyclerView=(RecyclerView)findViewById(R.id.home_recycler);
         done=(Button)findViewById(R.id.done_button);
+        invalid=(TextView)findViewById(R.id.invalid_address);
         adapter=new HomeAdapter(this);
+
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.LEFT|ItemTouchHelper.RIGHT) {
             @Override
             public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
@@ -50,17 +54,29 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void addHole(View view){
+        invalid.setVisibility(View.GONE);
         String size=holeSize.getText().toString();
         if(size.length()==0){
             Toast.makeText(this,"Please enter the hole size",Toast.LENGTH_LONG).show();
             holeSize.setHint(R.string.holeSize);
             return;
         }
+
         String address=holeAddress.getText().toString();
         if(address.length()==0){
             Toast.makeText(this,"Please enter the address",Toast.LENGTH_LONG).show();
             holeAddress.setHint(R.string.holeAddress);
             return;
+        }
+        if(Utils.holes.size()>0){
+            //if reserved area
+            Hole hole=Utils.checkAddressValidity(Integer.valueOf(address));
+            if(hole!=null){
+                invalid.setVisibility(View.VISIBLE);
+                invalid.append("Hole "+hole.getId()+"\n with starting address : "+hole.getAddress()
+                +"\n End Address : "+hole.getLimit()+"\n Try to correct your address");
+                return;
+            }
         }
         adapter.addHole(new Hole(Integer.valueOf(address),Integer.valueOf(size)));
         hideKeyboard(recyclerView);
