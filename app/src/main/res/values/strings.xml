@@ -2,4 +2,5 @@
     <string name="app_name">MemoryAllocation</string>
     <string name="holeSize">Hole Size in MB</string>
     <string name="holeAddress">Hole Starting Address</string>
+    <string name="invalidAddress">you have entered invalid address area as it\'s reserved for \n</string>
 </resources>
