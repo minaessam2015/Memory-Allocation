@@ -10,7 +10,7 @@ import java.util.List;
  * Created by mina essam on 04-May-17.
  */
 
-public class Utils {
+public final class Utils {
     public static List<Hole>holes=new ArrayList<>();
     public static List<Process>processes=new ArrayList<>();
     public static List<Integer> sizes=new ArrayList<>();
@@ -82,4 +82,13 @@ public class Utils {
 
     }
 
+    public static Hole checkAddressValidity(int start){
+        for (int i=0;i<holes.size();++i){
+            Hole hole=holes.get(i);
+            if(start>=hole.getAddress()&&start<hole.getLimit()){
+                return hole;
+            }
+        }
+        return null;
+    }
 }
