@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -12,6 +11,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:layout_weight="0">
+
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -35,6 +35,24 @@
         android:layout_gravity="center"
         android:layout_margin="5dp"
         android:onClick="addHole"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/colorPrimary"
+        android:layout_marginLeft="7dp"
+        android:layout_marginRight="7dp"
+        android:layout_gravity="center"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/invalid_address"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:textColor="@color/colorAccent"
+        android:text="@string/invalidAddress"
+        android:layout_margin="3dp"
+        android:visibility="gone"
+        android:background="#FFF176"/>
 </LinearLayout>
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
